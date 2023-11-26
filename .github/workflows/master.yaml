@@ -1,0 +1,28 @@
+name: Build Push Pull
+
+on:
+  push:
+    branches:
+      - main
+      
+jobs:
+  buildpush:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v2
+
+      - name: Set up Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '18'
+
+      - name: Build
+        run: docker build -t ghcr.io/kurniawanfaridjadmiko/backend:${{ github.run_number }} .
+
+      - name: Log in
+        run: docker login ghcr.io -u ${{ github.actor }} -p ${{ secrets.TOKEN }}
+
+      - name: Push
+        run: docker push ghcr.io/kurniawanfaridjadmiko/backend:${{ github.run_number }}
