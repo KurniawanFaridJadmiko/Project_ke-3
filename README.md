@@ -42,7 +42,7 @@ http://localhost:3000/
 jika berhasil akan muncul seperti ini : 
 ```json
 {
-    "message" : "Hello exampleController"
+    "message" : "Hallo semuanya ini adalah pesan sukses yang ditampilkan setelah anda berhasil melakukan CI/CD Back-End. Selamat dan Sukses selalu."
 }
 ```
 
