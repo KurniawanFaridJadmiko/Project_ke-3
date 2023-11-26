@@ -6,7 +6,7 @@ const exampleController = {}
 */
 exampleController.index = async(req,res) => {
     res.json({
-        message : "Hello exampleController"
+        "message" : "Hallo semuanya ini adalah pesan sukses yang ditampilkan setelah anda berhasil melakukan CI/CD Back-End. Selamat dan Sukses selalu."
     })
 }
 

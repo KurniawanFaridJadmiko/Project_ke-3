@@ -9,7 +9,7 @@
     "generate-controller": "node ./scripts/generateController.js"
   },
   "keywords": [],
-  "author": "Muhammad Irhas Albais",
+  "author": "Kurniawan Farid Jadmiko",
   "license": "ISC",
   "dependencies": {
     "dotenv": "^16.3.1",
