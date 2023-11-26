@@ -12,19 +12,18 @@ const config = require(__dirname + '/../config/config.js')[env];
 const db = {};
 
 let sequelize;
-if (config.use_env_variable) {
-  sequelize = new Sequelize(process.env[config.use_env_variable], config);
+if (process.env.NODE_ENV === 'production') {
+  sequelize = new Sequelize(process.env.PROD_DB_NAME, process.env.PROD_DB_USERNAME, process.env.PROD_DB_PASSWORD, {
+    host: process.env.PROD_DB_HOSTNAME,
+    port: process.env.PROD_DB_PORT,
+    dialect: 'mysql', // Sesuaikan dengan jenis database yang Anda gunakan
+  });
 } else {
-  sequelize = new Sequelize(
-    process.env.DB_NAME,
-    process.env.DB_USER,
-    process.env.DB_PASS,
-    {
-      host: process.env.DB_HOST,
-      port: process.env.DB_PORT,
-      dialect: process.env.DB_DRIVER,
-    }
-  );
+  sequelize = new Sequelize(process.env.DB_NAME, process.env.DB_USER, process.env.DB_PASS, {
+    host: process.env.DB_HOST,
+    port: process.env.DB_PORT,
+    dialect: 'mysql', // Sesuaikan dengan jenis database yang Anda gunakan
+  });
 }
 
 sequelize.authenticate().then(()=>{
