@@ -1,14 +1,23 @@
 const exampleController = {}
 
-/*
-    this is auto generate example, you can continue 
+exampleController.index = async (req, res) => {
+    const htmlMessage = `
+        <!DOCTYPE html>
+        <html lang="en">
+        <head>
+            <meta charset="UTF-8">
+            <meta name="viewport" content="width=device-width, initial-scale=1.0">
+            <title>CI/CD Success Message</title>
+        </head>
+        <body>
+            <h1>Hallo semuanya!</h1>
+            <p>Ini adalah pesan sukses yang ditampilkan setelah Anda berhasil melakukan CI/CD Back-End.</p>
+            <p>Selamat dan sukses selalu!</p>
+        </body>
+        </html>
+    `;
 
-*/
-exampleController.index = async(req,res) => {
-    res.json({
-        "message" : "Hallo semuanya ini adalah pesan sukses yang ditampilkan setelah anda berhasil melakukan CI/CD Back-End. Selamat dan Sukses selalu."
-    })
+    res.send(htmlMessage);
 }
 
-module.exports = exampleController
-
+module.exports = exampleController;
